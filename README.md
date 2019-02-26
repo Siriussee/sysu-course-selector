@@ -1,19 +1,20 @@
-# 中山大学(SYSU)新版选课系统的抢课软件
+# 中山大学(SYSU)选课系统的抢课软件
 
 ## 这是什么？
 
-这是一个基于 python3 的抢课软件，系我在贵校就读三年来，从未选上理想的课程，愤然而作。
+SYSU Course Selector(SCS)，是一个基于 python3 的抢课软件，系我在贵校就读三年来，从未选上理想的课程，愤然而作。
 
-实践证明，有了它的帮助，我的确选到了我想要的课程。
+实践证明，有了 SCS 的帮助，我的确选到了我想要的课程。
 
 ## 如何使用？
 
-1. 我只提供了源代码，所以首先你得准备一个 [python 3.7.0](https://www.python.org/downloads/)，
-2. 安装对应的依赖 `pip install -r requirements.txt`，
-3. 根据你的实际情况修改 `info.py`，
-4. 运行 `main.py` `python main.py`，
-5. 根据 `code.bmp` 中的验证码，输入验证码，
-6. 输入你想选的课的课程号，
+0. 你必须把源码拉到本地，执行 `git clone https://github.com/Siriussee/sysu-course-selector.git`；
+1. 我只提供了源代码，所以首先你得准备一个 [python 3.7.0](https://www.python.org/downloads/)；
+2. 安装对应的依赖 `pip install -r requirements.txt`；
+3. 根据你的实际情况修改 `info.py`；
+4. 运行主程序 `python main.py`；
+5. 根据 `code.bmp` 中的验证码，输入验证码；
+6. 输入你想选的课的课程号；
 7. 别关掉它，耐心等待。
 
 需要注意的是，这个抢课软件也仅仅是在有人退课的情况下为你尽快抢选这门课程。因此，它不能保证你一定能够选上这门课——说不定大家都不退课，或者有别人也用了这个软件捷足先登了呢。
