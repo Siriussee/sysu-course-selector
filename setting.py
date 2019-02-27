@@ -9,7 +9,7 @@ TIMEOUT = 5
 
 # time interval between 2 successful request
 # avoid too small DELAY, or it will hit the server too hard
-# OUGHT TO be int and 1 <= CONCURRENT_REQUEST <= 60
+# OUGHT TO be int and 1 <= DELAY <= 60
 DELAY = 5
 
 # if you use ocproxy and openconnect to VPN to SYSU's intranet,

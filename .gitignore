@@ -1,5 +1,9 @@
 #log file
 log3.log
+#capcha code img
+code.bmp
+#personal info
+info.py
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
