@@ -9,7 +9,7 @@ SYSU Course Selector(SCS)，是一个基于 python3 的抢课软件，系我在�
 ## 如何使用？
 
 0. 你必须把源码拉到本地，执行 `git clone https://github.com/Siriussee/sysu-course-selector.git`；
-1. 我只提供了源代码，所以首先你得准备一个 [python 3.7.0](https://www.python.org/downloads/)；
+1. 我只提供了源代码，所以首先你得准备一个 [Python 3.8+](https://www.python.org/downloads/)（推荐 Python 3.12）；
 2. 安装对应的依赖 `pip install -r requirements.txt`；
 3. 根据你的实际情况修改 `info.py`；
 4. 运行主程序 `python main.py`；
@@ -33,3 +33,15 @@ SYSU Course Selector(SCS)，是一个基于 python3 的抢课软件，系我在�
 - 我的代码只在SE专业的专选课程进行过测试，希望能够将适用性扩展到更多专业和更多课程类别。
 - 二维码的机器识别。
 - TBD
+
+## 更新日志 / Changelog
+
+### 2026-02-12
+- **Python版本升级**: 将最低要求从 Python 3.7.0 更新到 Python 3.8+，推荐使用 Python 3.12.x
+- **依赖更新**: 更新所有依赖包到最新稳定版本
+  - beautifulsoup4: 4.6.3 → 4.14.3
+  - lxml: 4.2.4 → 6.0.2
+  - PySocks: 1.6.8 → 1.7.1
+- **依赖清理**: 移除了不必要的依赖，保留核心功能需要的包
+- **安全性**: 所有依赖已通过安全漏洞检查
+- **兼容性**: 确保工具在新版本下功能保持不变
