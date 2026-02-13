@@ -3,11 +3,8 @@ from info import name, pwd
 
 def main():
     cs = course_selector()
-    img = cs.pre_login()
-    with open('code.bmp', 'wb') as f:
-        f.write(img)
-    captcha_str = input('what is captcha?')
-    cs.in_login(name, pwd, captcha_str)
+    cs.pre_login()
+    cs.in_login(name, pwd)
     course_data = cs.course_query()
     # print course_data
     print('{:10}{:30}{:10}{:10}{:10}'.format('Course ID', 'Course Name', 'Lecturer', 'Seleted/All', 'Chosen'))

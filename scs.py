@@ -18,7 +18,6 @@ from setting import CONCURRENT_REQUEST, TIMEOUT, DELAY, USE_SOCKS5_PROXY, SOCKS5
 class course_selector:
     user_agent = 'Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)'
     cas_url = 'https://cas.sysu.edu.cn/esc-sso/login/page'
-    captcha_url = 'https://cas.sysu.edu.cn/cas/captcha.jsp'
     selection_url = 'https://jwxt.sysu.edu.cn/jwxt/mk/courseSelection'
     courselist_url = 'https://jwxt.sysu.edu.cn/jwxt/{}?_t={}'
     course_select_url = 'https://jwxt.sysu.edu.cn/jwxt/choose-course-front-server/classCourseInfo/course/choose?_t={}'
@@ -86,7 +85,7 @@ class course_selector:
         }
         return cl_header
 
-    # get exec code and return captcha img
+    # get exec code
     def pre_login(self):
         # find CAS execution code
         cas_get = urllib.request.Request(self.cas_url, headers=self.headers)
@@ -98,22 +97,13 @@ class course_selector:
         soup = BeautifulSoup(html, features="lxml")
         execution = soup.find_all('input', attrs={'name': 'execution'})[0]['value']
         self.exec_code = execution
-        # get captcha img
-        captcha_get = urllib.request.Request(self.captcha_url, headers=self.headers)
-        response = self.__open_s(captcha_get)
-        if response != None and 'code' not in response:
-            img = response['read']
-            return img
-        else:
-            raise NameError('get captcha failed')
 
     # build login post and login
-    def in_login(self, username, pwd, captcha_str):
+    def in_login(self, username, pwd):
         # build login post and login to CAS, update cookie jar
         value = {
             'username' : username,
             'password' : pwd,
-            'captcha': captcha_str,
             'execution' : self.exec_code,
             '_eventId' : 'submit',
             'geolocation': ''
@@ -121,7 +111,7 @@ class course_selector:
         data = urllib.parse.urlencode(value).encode()
         req_post = urllib.request.Request(self.cas_url, headers=self.headers, data=data)
         response = self.__open_s(req_post)
-        # TODO:login to CAS error handling, wrong captcha or something else
+        # TODO:login to CAS error handling
         #html = response.read()
         #soup = BeautifulSoup(html, features="lxml")
         #title = soup.find_all('title')[0]
