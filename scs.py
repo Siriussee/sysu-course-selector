@@ -17,11 +17,11 @@ from setting import CONCURRENT_REQUEST, TIMEOUT, DELAY, USE_SOCKS5_PROXY, SOCKS5
 
 class course_selector:
     user_agent = 'Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)'
-    cas_url = 'https://cas.sysu.edu.cn/cas/login?service=https://uems.sysu.edu.cn/jwxt/api/sso/cas/login%3Fpattern=student-login'
+    cas_url = 'https://cas.sysu.edu.cn/esc-sso/login/page'
     captcha_url = 'https://cas.sysu.edu.cn/cas/captcha.jsp'
-    selection_url = 'https://uems.sysu.edu.cn/jwxt/mk/courseSelection/'
-    courselist_url = 'https://uems.sysu.edu.cn/jwxt/{}?_t={}'
-    course_select_url = 'https://uems.sysu.edu.cn/jwxt/choose-course-front-server/classCourseInfo/course/choose?_t={}'
+    selection_url = 'https://jwxt.sysu.edu.cn/jwxt/mk/courseSelection'
+    courselist_url = 'https://jwxt.sysu.edu.cn/jwxt/{}?_t={}'
+    course_select_url = 'https://jwxt.sysu.edu.cn/jwxt/choose-course-front-server/classCourseInfo/course/choose?_t={}'
     headers = {'User-Agent' : user_agent}
     info_para = ('student-status/student-info/detail', 
         'choose-course-front-server/classCourseInfo/selectCourseInfo',
@@ -231,3 +231,4 @@ class course_selector:
                     thread_pool.append(thread)
             for t in thread_pool:
                 t.join()
+
